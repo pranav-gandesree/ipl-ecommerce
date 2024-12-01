@@ -69,11 +69,14 @@ const signinUser = async (req, res) => {
     });
 
     res.status(200).json({
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-      city: user.city,
-      token,
+      message: "user registration successful!",
+      user:{
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+        city: user.city,
+      }, 
+      token: token
     });
   } catch (error) {
     res.status(500).send({ message: "Error signing in" });
@@ -83,15 +86,19 @@ const signinUser = async (req, res) => {
 
 const verifyUser = async (req, res) => {
   try {
-    // If token is valid, send user details back
+    const { email, id } = req.user;
+
+    // Respond with the decoded token data
     res.status(200).json({
       success: true,
-      message: "Token is valid",
-      user: req.user,
+      user: { email, id },
     });
   } catch (error) {
+    console.error("Error in verifyUser:", error);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
+
 
 module.exports = { signupUser, signinUser, verifyUser };

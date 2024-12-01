@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import useSession from "@/hooks/useSession";
-
 
 
 const SignInForm = () => {
@@ -18,18 +16,20 @@ const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  const { user } = useSession();
 
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/api/auth/signin', { email, password });
-      console.log(response);
-      
-    //   const { token, username, email: userEmail, id } = response.data; 
-    //   console.log(username, id)
-    //   localStorage.setItem('token', token);
+      console.log(response)
+
+      const { token, user } = response.data; 
+      // console.log(token)
+      localStorage.setItem('token', token);
+      localStorage.setItem("user", JSON.stringify(user));
+ 
+      console.log("Logged-in user:", user); 
       router.push('/dashboard');
     } catch (error) {
       console.error(error);

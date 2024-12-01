@@ -1,56 +1,57 @@
-// hooks/useSession.js
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+
+interface User {
+  id: string,
+  email: string;
+  name: string;
+  city: string;
+}
 
 const useSession = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    const checkSession = async () => { 
-      try {
-        setLoading(true);
-        const token = localStorage.getItem("token");
+  const checkSession = useCallback(() => {
+    try {
+      const token = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
 
-        if (!token) {
-          setIsAuthenticated(false);
-          setLoading(false);
-          return;
-        }
-
-        const response = await axios.get("http://localhost:3000/api/auth/verify", {
-            withCredentials: true, 
-        });
-        console.log(response)
-
-        if (response.data.success) {
-          setIsAuthenticated(true);
-          setUser(response.data.user);
-        } else {
-          setIsAuthenticated(false);
-        }
-      } catch (error) {
-        console.error("Session verification failed:", error);
+      if (!token || !storedUser) {
         setIsAuthenticated(false);
-      } finally {
-        setLoading(false);
+        setUser(null);
+        return;
       }
-    };
 
-    checkSession();
+      // Directly set user data from localStorage if token exists
+      setIsAuthenticated(true);
+      setUser(JSON.parse(storedUser));
+    } catch (error) {
+      console.error("Session verification failed:", error);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      setIsAuthenticated(false);
+      setUser(null);
+    }
   }, []);
 
-  const logout = () => {
+  useEffect(() => {
+    setLoading(true);
+    checkSession();
+    setLoading(false);
+  }, [checkSession]);
+
+  const logout = useCallback(() => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsAuthenticated(false);
     setUser(null);
     router.push("/signin");
-  };
+  }, [router]);
 
-  return { isAuthenticated, user, loading, logout };
+  return { isAuthenticated, user, setUser, loading, logout };
 };
 
 export default useSession;

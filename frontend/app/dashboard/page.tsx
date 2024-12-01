@@ -6,16 +6,25 @@ import useSession from "@/hooks/useSession";
 import { useRouter } from 'next/navigation';
 
 const page = () => {
-
-  const { isAuthenticated, loading, user, logout } = useSession();
+  const { user, isAuthenticated, loading }= useSession();
   const router = useRouter();
-console.log(user)
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.push("/signin"); 
+    }
+  }, [isAuthenticated, loading, router]);
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
   
   return (
     <div>
       dashboarddd
       <div> 
-        <h1>Welcome, {user}</h1>
+        <h1>Welcome, {user?.email}</h1>
 
       </div>
     </div>
