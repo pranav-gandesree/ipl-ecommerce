@@ -87,16 +87,16 @@ const SignUpForm = () => {
                   <SelectValue placeholder="Select your city" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Bengaluru">Bengaluru</SelectItem>
-                  <SelectItem value="Chennai">Chennai</SelectItem>
-                  <SelectItem value="Mumbai">Mumbai</SelectItem>
-                  <SelectItem value="Hyderabad">Hyderabad</SelectItem>
-                  <SelectItem value="Delhi">Delhi</SelectItem>
-                  <SelectItem value="Lucknow">Lucknow</SelectItem>
-                  <SelectItem value="Punjab">Punjab</SelectItem>
-                  <SelectItem value="Gujarat">Gujarat</SelectItem>
-                  <SelectItem value="Rajasthan">Rajasthan</SelectItem>
-                  <SelectItem value="Kolkata">Kolkata</SelectItem>
+                  <SelectItem value="bengaluru">Bengaluru</SelectItem>
+                  <SelectItem value="chennai">Chennai</SelectItem>
+                  <SelectItem value="mumbai">Mumbai</SelectItem>
+                  <SelectItem value="hyderabad">Hyderabad</SelectItem>
+                  <SelectItem value="delhi">Delhi</SelectItem>
+                  <SelectItem value="lucknow">Lucknow</SelectItem>
+                  <SelectItem value="punjab">Punjab</SelectItem>
+                  <SelectItem value="gujarat">Gujarat</SelectItem>
+                  <SelectItem value="rajasthan">Rajasthan</SelectItem>
+                  <SelectItem value="kolkata">Kolkata</SelectItem>
                 </SelectContent>
               </Select>
             </div>
