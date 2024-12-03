@@ -9,17 +9,19 @@ import { ShoppingCart } from "lucide-react";
 interface ProductCardProps {
   product: Product;
   primary: string;
+  secondary: string
 }
 
-export function ProductCard({ product, primary }: ProductCardProps) {
+export function ProductCard({ product, primary, secondary }: ProductCardProps) {
+
   return (
-    <Card className="bg-white/95 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+    <Card className={`bg-[${secondary}] bg-opacity-85 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-auto`}>
       <CardHeader className="p-4">
-        <div className="relative h-64 overflow-hidden">
+        <div className="relative h-64 overflow-hidden]">
           <img 
             src={product.image} 
             alt={product.name} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
 
         </div>
@@ -47,7 +49,7 @@ export function ProductCard({ product, primary }: ProductCardProps) {
       </div>
       <CardFooter className="p-4 bg-gray-50">
         <Button 
-          className="w-full bg-[#0f4a8a] hover:bg-[#0a3666] text-white flex items-center justify-center gap-2"
+          className={`w-full bg-[${primary}] hover:bg-[${primary}-dark] text-white flex items-center justify-center gap-2`}
         >
           <ShoppingCart className="w-4 h-4" />
           Add to Cart

@@ -7,7 +7,7 @@ const Navbar = () => {
   const { user, logout } = useSession();
 
   return (
-    <nav className="bg-gray-800 text-white py-4 px-6 flex justify-between items-center">
+    <nav className="bg-[#011746] text-white py-4 px-6 flex justify-between items-center">
       {/* Left Section: Heading */}
       <div className="text-2xl font-bold">Fulltoss</div>
 

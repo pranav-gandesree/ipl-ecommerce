@@ -82,32 +82,38 @@ const Dashboard = () => {
   console.log("primaru is", primary)
 
   return (
-    // <div className=`{relative min-h-screen bg-gradient-to-b from-[${primary}]/90 to-transparent`}>
-    <div className="relative min-h-screen ">
-      {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <img
-            src={team.logo}
-            alt={`${team.name} Logo`}
-            className="w-32 h-32 object-contain"
-          />
-          <div className="text-center md:text-left">
-            <h1 className={`text-3xl md:text-4xl font-bold text-[${primary}] mb-2`}>
-              {team.name} Official Store
-            </h1>
-            <p className={`text-[${primary}] max-w-2xl`}>{team.description}</p>
-          </div>
-        </div>
-      </div>
+    // <div className={`relative min-h-screen bg-gradient-to-b from-${primary}-500 to-transparent`}>
+    <div
+  className="relative min-h-screen bg-gradient-to-b"
+  style={{
+    backgroundImage: `linear-gradient(to bottom, ${primary}90, transparent)`,
+  }}
+>
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <ProductCard key={product._id} product={product} primary={primary} />
-          ))}
-        </div>
-      </main>
+
+   <div className="relative z-10 container mx-auto px-4 py-8">
+         <div className="flex flex-col md:flex-row items-center gap-6">
+           <img
+             src={team.logo}
+             alt={`${team.name} Logo`}
+             className="w-32 h-32 object-contain" />
+           <div className="text-center md:text-left">
+             <h1 className={`text-3xl md:text-4xl font-bold text-[${primary}] mb-2`}>
+               {team.name} Official Store
+             </h1>
+             <p className={`text-[${primary}] max-w-2xl`}>{team.description}</p>
+           </div>
+         </div>
+       </div>
+       
+       <main className="container mx-auto px-4 py-8">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             {products.map((product) => (
+               <ProductCard key={product._id} product={product} primary={primary} secondary= {secondary} />
+             ))}
+           </div>
+         </main>
+
     </div>
   );
 };
