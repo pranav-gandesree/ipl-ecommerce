@@ -90,13 +90,13 @@ const SignUpForm = () => {
                   <SelectItem value="bengaluru">Bengaluru</SelectItem>
                   <SelectItem value="chennai">Chennai</SelectItem>
                   <SelectItem value="mumbai">Mumbai</SelectItem>
-                  <SelectItem value="hyderabad">Hyderabad</SelectItem>
+                  <SelectItem value="kolkata">Kolkata</SelectItem>
+                  {/* <SelectItem value="hyderabad">Hyderabad</SelectItem>
                   <SelectItem value="delhi">Delhi</SelectItem>
                   <SelectItem value="lucknow">Lucknow</SelectItem>
                   <SelectItem value="punjab">Punjab</SelectItem>
                   <SelectItem value="gujarat">Gujarat</SelectItem>
-                  <SelectItem value="rajasthan">Rajasthan</SelectItem>
-                  <SelectItem value="kolkata">Kolkata</SelectItem>
+                  <SelectItem value="rajasthan">Rajasthan</SelectItem> */}
                 </SelectContent>
               </Select>
             </div>

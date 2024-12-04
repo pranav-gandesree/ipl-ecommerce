@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ primary, secondary }) => {
   const { user, logout } = useSession();
 
   return (
-    // <nav className={`bg-[${primary}] text-white py-4 px-6 flex justify-between items-center`}>
+  
     <nav
     className="py-4 px-6 flex justify-between items-center"
     style={{

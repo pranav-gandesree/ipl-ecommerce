@@ -34,7 +34,7 @@ const Dashboard = () => {
   const { isAuthenticated, loading } = useSession();
   const router = useRouter();
 
-  // Redirect if not authenticated
+
   useEffect(() => {
     if (!loading && !isAuthenticated) {
       router.push("/signin");
@@ -83,7 +83,7 @@ const Dashboard = () => {
   console.log("primaru is", primary)
 
   return (
-    // <div className={`relative min-h-screen bg-gradient-to-b from-${primary}-500 to-transparent`}>
+  
 
     <>
 
@@ -92,7 +92,6 @@ const Dashboard = () => {
     <div
   className="relative min-h-screen bg-gradient-to-b"
   style={{
-    // backgroundImage: `linear-gradient(to bottom, ${primary}90, transparent)`,
     backgroundColor: primary,
   }}
 >
