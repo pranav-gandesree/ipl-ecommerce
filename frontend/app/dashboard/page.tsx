@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import useSession from "@/hooks/useSession";
 import { useRouter } from "next/navigation";
 import { ProductCard } from "@/components/canvas/ProductCard";
+import Navbar from "@/components/canvas/Navbar";
 
 export interface Product {
   _id: string;
@@ -83,10 +84,16 @@ const Dashboard = () => {
 
   return (
     // <div className={`relative min-h-screen bg-gradient-to-b from-${primary}-500 to-transparent`}>
+
+    <>
+
+<Navbar primary={primary} secondary={secondary}/>
+
     <div
   className="relative min-h-screen bg-gradient-to-b"
   style={{
-    backgroundImage: `linear-gradient(to bottom, ${primary}90, transparent)`,
+    // backgroundImage: `linear-gradient(to bottom, ${primary}90, transparent)`,
+    backgroundColor: primary,
   }}
 >
 
@@ -115,6 +122,7 @@ const Dashboard = () => {
          </main>
 
     </div>
+    </>
   );
 };
 

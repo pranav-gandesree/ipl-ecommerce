@@ -42,7 +42,7 @@ const SignInForm = () => {
       <Card className="w-full max-w-md shadow-lg rounded-md">
         <CardHeader>
           <h2 className="text-2xl font-bold text-center">
-            Welcome to <span className="text-purple-500">FullToss</span>!
+            Welcome to <span className="text-purple-500">IKART</span>!
           </h2>
         </CardHeader>
         <CardContent>

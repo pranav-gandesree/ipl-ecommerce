@@ -15,7 +15,7 @@ interface ProductCardProps {
 export function ProductCard({ product, primary, secondary }: ProductCardProps) {
 
   return (
-    <Card className={`bg-[${secondary}] bg-opacity-85 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-auto`}>
+    <Card className={`bg-[${secondary}] bg-opacity-55 backdrop-blur-sm shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-auto`}>
       <CardHeader className="p-4">
         <div className="relative h-64 overflow-hidden]">
           <img 
@@ -24,7 +24,7 @@ export function ProductCard({ product, primary, secondary }: ProductCardProps) {
             className="w-full h-full object-contain"
           />
 
-        </div>
+        </div> 
       </CardHeader>
       <div className="p-4">
         <div className="flex flex-row justify-between">
@@ -49,9 +49,9 @@ export function ProductCard({ product, primary, secondary }: ProductCardProps) {
       </div>
       <CardFooter className="p-4 bg-gray-50">
         <Button 
-          className={`w-full bg-[${primary}] hover:bg-[${primary}-dark] text-white flex items-center justify-center gap-2`}
+          className={`w-full bg-[${primary}] hover:bg-[${primary}-dark flex items-center justify-center gap-2 text-black`}
         >
-          <ShoppingCart className="w-4 h-4" />
+          <ShoppingCart className={`text-black w-4 h-4 `} />
           Add to Cart
         </Button>
       </CardFooter>
